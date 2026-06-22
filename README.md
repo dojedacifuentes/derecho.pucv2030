@@ -109,6 +109,19 @@ Las marcadas con **`placeholder: true`** muestran una etiqueta **“Verificar UR
 
 ---
 
+## PDF imprimible (1 página de diagnóstico + 1 de propuesta)
+
+Documento estratégico premium en **carta horizontal, 2 páginas**, pensado para entregar físicamente. Fondo claro (rinde bien en color y en blanco y negro), acentos cian/negro, nodos, radar y matriz 2×2 vectoriales.
+
+```bash
+npm run pdf
+```
+
+- Salida: **`output/derecho-pucv-2030-diagnostico-propuesta.pdf`**
+- Generado con **PDFKit** (vectorial, fuentes del sistema Helvetica/Courier embebidas — sin internet ni fuentes externas).
+- Reproducible y editable: todo el contenido y las posiciones están en [`scripts/generate-pdf.js`](scripts/generate-pdf.js).
+- Para imprimir: abrir el PDF y usar _Imprimir_ a tamaño real (carta, horizontal).
+
 ## Subir a GitHub
 
 ```bash
