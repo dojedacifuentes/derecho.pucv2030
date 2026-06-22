@@ -1,6 +1,6 @@
 "use client";
 
-import { FileText, Route, ShieldCheck, ClipboardList, BarChart3 } from "lucide-react";
+import { FileText, Route, ShieldCheck, ClipboardList, BarChart3, FileDown } from "lucide-react";
 import type { ReactNode } from "react";
 import Reveal from "./ui/Reveal";
 import { downloadReport, type ReportDoc } from "@/lib/download";
@@ -120,6 +120,20 @@ export default function Downloads() {
             desde el navegador puedes usar &ldquo;Guardar como PDF&rdquo;.
           </p>
         </Reveal>
+
+        <Reveal>
+          <a className="dl-feature" href="/derecho-pucv-2030-diagnostico-propuesta.pdf" download>
+            <span className="ic">
+              <FileDown size={22} />
+            </span>
+            <span>
+              <span className="nm">Descargar PDF estratégico</span>
+              <span className="ty">Diagnóstico y propuesta · 2 páginas, carta horizontal · listo para imprimir</span>
+            </span>
+            <span className="go">PDF ↓</span>
+          </a>
+        </Reveal>
+
         <Reveal className="downloads">
           {BUTTONS.map((b) => (
             <button key={b.label} className="dl" onClick={() => downloadReport(b.build())}>

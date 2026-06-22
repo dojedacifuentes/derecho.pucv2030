@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Copy, Check, Printer } from "lucide-react";
+import { Copy, Check, Printer, FileDown } from "lucide-react";
 import SectionHeader from "./ui/SectionHeader";
 import Reveal from "./ui/Reveal";
 import { executiveSummary } from "@/data/proposals";
@@ -48,6 +48,10 @@ export default function ExecutiveSummary() {
               {copied ? <Check /> : <Copy />}
               {copied ? "Resumen copiado" : "Copiar resumen ejecutivo"}
             </button>
+            <a className="btn primary" href="/derecho-pucv-2030-diagnostico-propuesta.pdf" download>
+              <FileDown />
+              Descargar PDF estratégico
+            </a>
             <button className="btn" onClick={() => window.print()}>
               <Printer />
               Imprimir / Guardar PDF

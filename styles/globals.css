@@ -1512,6 +1512,60 @@ details.lvl[open] .arrow {
 }
 
 /* ── downloads ── */
+.dl-feature {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--accent-dim);
+  border-radius: 5px;
+  background: linear-gradient(180deg, var(--accent-soft), transparent);
+  padding: 20px 24px;
+  cursor: pointer;
+  transition: 0.3s var(--ease);
+  color: var(--ink);
+  text-decoration: none;
+  margin-bottom: 14px;
+}
+.dl-feature:hover {
+  border-color: var(--accent);
+  background: rgba(86, 129, 255, 0.14);
+}
+.dl-feature .ic {
+  flex: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent);
+  color: #fff;
+}
+.dl-feature .nm {
+  font-size: 16px;
+  font-weight: 600;
+}
+.dl-feature .ty {
+  margin-top: 3px;
+  font-size: 12.5px;
+  color: var(--ink2);
+}
+.dl-feature .go {
+  margin-left: auto;
+  font-family: var(--font-plex-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  .dl-feature .go {
+    display: none;
+  }
+}
 .downloads {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));

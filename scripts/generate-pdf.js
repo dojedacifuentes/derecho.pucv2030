@@ -46,7 +46,8 @@ const doc = new PDFDocument({
     Keywords: "Derecho, IA, PUCV, formación jurídica, legaltech",
   },
 });
-doc.pipe(fs.createWriteStream(outFile));
+const stream = fs.createWriteStream(outFile);
+doc.pipe(stream);
 
 // ── Helpers ──
 function rule(x, y, w, color = LINE, weight = 1) {
@@ -421,4 +422,13 @@ doc.text(
 footer();
 
 doc.end();
-console.log("✓ PDF generado en:", path.relative(process.cwd(), outFile));
+
+// Copia para descarga web (Next la sirve desde /public en la raíz del sitio).
+stream.on("finish", () => {
+  const publicDir = path.join(__dirname, "..", "public");
+  fs.mkdirSync(publicDir, { recursive: true });
+  const publicFile = path.join(publicDir, path.basename(outFile));
+  fs.copyFileSync(outFile, publicFile);
+  console.log("✓ PDF generado en:", path.relative(process.cwd(), outFile));
+  console.log("✓ Copia descargable en:", path.relative(process.cwd(), publicFile));
+});
